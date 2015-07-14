@@ -68,7 +68,7 @@ define('modular.multistate/module-model',['angular',
                 stateModelMain.moduleName
             ])
             .factory(metadata.componentName, ['$rootScope', '$log', stateModelMain.componentName,
-                function($rootScope, $log, CengaStateModel) {
+                function($rootScope, $log, ModuleStateModel) {
 
                     function ModuleModelInstance(name, callback) {
                         this.currentState = undefined;
@@ -103,7 +103,7 @@ define('modular.multistate/module-model',['angular',
                             if (this.states[state]) {
                                 throw new Error("State '" + state + "' already defined.");
                             }
-                            this.states[state] = new CengaStateModel(state, stateVars);
+                            this.states[state] = new ModuleStateModel(state, stateVars);
                             return this;
                         },
                         canGo: function(state) {
